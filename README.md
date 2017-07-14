@@ -32,6 +32,8 @@
     mkdir hexo_blog1
     sudo hexo init
         source：用于存放我们用markdown编写的博文源文件和静态资源
+        # Markdown 和 HTML 文件会被解析并放到 public 文件夹
+        scaffolds: Hexo的模板是指在新建的markdown文件中默认填充的内容
         themes：用于存放主题文件，每个主题也有自己的主题配置文件_config.yml文件
         _config.yml：站点配置文件，用于配置博客信息，如作者，博客名称等
         node_modules文件夹
@@ -47,7 +49,7 @@
     sudo hexo new "new-post" #新建文章
         source/_posts目录下会生成一个”new-post.md”的markdown文件
     sudo hexo new page "pageName" #新建页面
-    sudo hexo d -g #生成部署
+    sudo hexo d -g #生成部署 在执行hexo deploy时将其复制到.deploy文件夹中
     sudo hexo s -g #生成预览
     
     sudo hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。
@@ -60,7 +62,7 @@
 
     cd hexo_blog1
     sudo hexo clean
-    sudo git clone https://github.com/litten/hexo-theme-jacman.git themes/jacman
+    sudo git clone https://github.com/wuchong/jacman.git themes/jacman
 2.启用主题
 
     sudo vim _config.yml
@@ -72,7 +74,20 @@
     cd ../../ 
     sudo hexo g 
     sudo hexo s 
-
+### 插件
+    
+    cd hexo_blog1
+    sudo cnpm install hexo-generator-feed --save
+    vim _config.yml
+        feed:
+            type: atom
+            path: atom.xml
+            limit: 20
+    sudo hexo g  # 会发现public文件夹下多了atom.xml 例如要订阅我的blog只要输入ihtc.cc/atom就可以搜寻到啦
+    
+    # 达到搜寻引擎友好的目的
+    sudo cnpm install hexo-generator-sitemap --save
+    
 [githut pages](https://pages.github.com/):
 github每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过http://username.github.io 来访问你的个人主页
 ### hexo 部署到github
@@ -121,7 +136,9 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     cd ../  
  使用git命令行部署的 效果是:当输入https://femn2014.github.io/ 会转向到www.femnxyz.xyz这个url上，内容是github上的内容.
 
-### 添加支付宝捐赠按钮及二维码支付[请参考](http://icehe.me/web/donate/)
+
+### 更换主题系列
+### 1.添加支付宝捐赠按钮及二维码支付[请参考](http://icehe.me/web/donate/)
 
     sudo vim themes/jacman/layout/_widget/zhifubao.ejs
     sudo vim themes/jacman/_config.yml
@@ -134,10 +151,26 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         - rss
     sudo hexo g 
     sudo hexo s 
-### 增加支付宝的支付图片
+### 2.增加支付宝的支付图片(在yilia主题下)
 
+    sudo git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
     sudo vim themes/yilia/_config.yml
     alipay:你的支付图片
+### 3.casper,但目前还不太会弄 ,还有个父级版的，本人不懂前端也是很无奈
+    
+    cd hexo_blog1
+    sudo hexo clean
+    sudo git clone https://github.com/kywk/hexo-theme-casper.git themes/casper
+    sudo vim _config.yml
+    # update
+    cd themes/casper
+    git pull
+    
+### 4.mabao
+
+    sudo git clone https://github.com/moretwo/hexo-theme.git themes/mabao
+    sudo vim _config.yml
+    
 ### [学习hexo](https://material.viosey.com/start/)
 
 
