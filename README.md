@@ -184,7 +184,7 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     
 ### [Google Analytics 统计](https://www.google.com/intl/zh-CN/analytics/)
     
-    sodo vim themes/mabao/layout/google-analytics.ejs
+    sodo vim themes/mabao/layout/casper/google-analytics.ejs
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
