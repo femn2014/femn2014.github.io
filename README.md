@@ -49,7 +49,7 @@
     sudo hexo new "new-post" #新建文章
         source/_posts目录下会生成一个”new-post.md”的markdown文件
     sudo hexo new page "pageName" #新建页面
-    sudo hexo d -g #生成部署 在执行hexo deploy时将其复制到.deploy文件夹中
+    sudo hexo d -g #生成部署 在执行hexo deploy时将其public复制到.deploy_git文件夹中
     sudo hexo s -g #生成预览
     
     sudo hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。
@@ -65,27 +65,6 @@
     sudo git clone https://github.com/wuchong/jacman.git themes/jacman
 2.启用主题
 
-    sudo vim _config.yml
-    theme: jacman
-3.更新主题
-    
-    cd themes/jacman
-    sudo git pull
-    cd ../../ 
-    sudo hexo g 
-    sudo hexo s 
-### 插件
-    
-    cd hexo_blog1
-    sudo cnpm install hexo-generator-feed --save
-    sudo vim _config.yml
-        feed:
-            type: atom
-            path: atom.xml
-            limit: 20
-    sudo hexo g  # 会发现public文件夹下多了atom.xml 例如要订阅我的blog只要输入ihtc.cc/atom就可以搜寻到啦
-    # 更新插件
-    sudo cnpm update     
 
     # 达到搜寻引擎友好的目的(提高搜索结果中的展现率)
     sudo cnpm install hexo-generator-sitemap --save
@@ -127,7 +106,37 @@
         </div>
         </div>
     访问http://www.femnxyz.xyz/about/
+### [添加disqus评论系统](https://disqus.com)
+    
+    # Qisqus – settings – Add Disqus to your site 
+    # Website Name:www.femnxyz.xyz
+    # create after -->setting -->shortname
+    sudo vim _config.yml
+        disqus_shortname: www-femnxyz-xyz (you-shortname)
+    sudo vim thems/mabao/_config.yml
+        comment_provider: disqus
+    # 如需取消某个页面的评论，在md文件的front-matter中增加
+        comments: false
+    
+### [Google Analytics 统计](https://www.google.com/intl/zh-CN/analytics/)
+    
+    sodo vim themes/mabao/layout/google-analytics.ejs
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+          ga('create', 'UA-102544725-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    
+    sudo vim thems/mabao/_config.yml
+        google_analytics:
+          enable: true
+          id: UA-102544725-1 # your_GAID
+          site: auto
 
 [githut pages](https://pages.github.com/):
 github每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过http://username.github.io 来访问你的个人主页
