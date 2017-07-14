@@ -64,7 +64,22 @@
     sudo hexo clean
     sudo git clone https://github.com/wuchong/jacman.git themes/jacman
 2.启用主题
+    
+    sudo vim _config.yml
+        theme: mabao
+3.更新主题
+    
+    cd themes/jacman
+    git pull
+### 安装插件
 
+    # 安装 RSS 插件
+    sudo cnpm install hexo-generator-feed --save
+    sudo vim _config.yml
+        feed:
+           type: atom
+           path: atom.xml
+           limit: 20
 
     # 达到搜寻引擎友好的目的(提高搜索结果中的展现率)
     sudo cnpm install hexo-generator-sitemap --save
@@ -73,11 +88,60 @@
             path: sitemap.xml
     sudo hexo g # 部署到github上 就可以访问 http://www.femnxyz.xyz/sitemap.xml
     
+    # 更新插件
+    sudo cnpm update
+    
 [如何向google提交sitemap](https://www.google.com/webmasters/verification/home?hl=en)
 [其它的认证](https://www.google.com/webmasters/tools)
 [web tools ](https://www.google.com/webmasters/tools/testing-tools-links?hl=zh-CN&authuser=0)
 
+### hexo 部署到github
+[githut pages](https://pages.github.com/):
+github每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过http://username.github.io 来访问你的个人主页
     
+    cd hexo_blog1
+    sudo cnpm install hexo-deployer-git --save
+        #如果有此错误Permission denied (publickey).请用对应的用户运行如下命令
+        ssh-keygen -t rsa -C '你的邮箱' # 将对应用户的~./ssh/id_rsa.pub的内容 放到github上
+    sudo vim _config.yml
+        deploy:
+          type: git
+          repo: https://github.com/femn2014/femn2014.github.io.git 
+          branch: master
+    sudo hexo d # 相当于git push 到上面的仓库上.
+    https://femn2014.github.io/
+
+### 使用git命令行部署
+    
+    cd hexo_blog1
+    git clone https://github.com/femn2014/femn2014.github.io.git deploy/femn2014.github.io
+    # 发表一个新文章
+    sudo hexo new "new-post" #新建文章
+    # 绑定独立域名
+    cd ./source
+    sudo vim CNAME
+        www.femnxyz.xyz
+
+    sudo hexo g
+    sudo cp -R public/*  deploy/femn2014.github.io
+    cd deploy/femn2014.github.io
+    git add .
+    git commit -m 'new-post,try to add domain'
+    git push -u origin master 
+
+如果在github-->setting-->sustom domain-->www.femnyy.com时，当输入https://femn2014.github.io/ 会转向到www.femnyy.com这个网站上,内容是femnyy.com网站的内容.
+### 绑定独立域名
+1.[获取](https://help.github.com/articles/setting-up-an-apex-domain/)github的IP地址
+
+2.在你的域名注册提供商那里配置DNS解析,推荐使用CNAME类型的记录
+
+3.添加CNAME文件
+
+    cd ./source
+    sudo vim CNAME
+        www.femnxyz.xyz
+    cd ../  
+ 使用git命令行部署的 效果是:当输入https://femn2014.github.io/ 会转向到www.femnxyz.xyz这个url上，内容是github上的内容.
 ### 添加about页面(添加404.html直接在source下就行,然后部署到github上,当访问我们不存在的页面时，就会跳转到我们定义的404.html页面)
 
     cd hexo_blog1
@@ -138,53 +202,6 @@
           id: UA-102544725-1 # your_GAID
           site: auto
 
-[githut pages](https://pages.github.com/):
-github每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过http://username.github.io 来访问你的个人主页
-### hexo 部署到github
-    
-    cd hexo_blog1
-    sudo cnpm install hexo-deployer-git --save
-        #如果有此错误Permission denied (publickey).请用对应的用户运行如下命令
-        ssh-keygen -t rsa -C '你的邮箱' # 将对应用户的~./ssh/id_rsa.pub的内容 放到github上
-    sudo vim _config.yml
-        deploy:
-          type: git
-          repo: https://github.com/femn2014/femn2014.github.io.git 
-          branch: master
-    sudo hexo d # 相当于git push 到上面的仓库上.
-    https://femn2014.github.io/
-
-### 使用git命令行部署
-    
-    cd hexo_blog1
-    git clone https://github.com/femn2014/femn2014.github.io.git deploy/femn2014.github.io
-    # 发表一个新文章
-    sudo hexo new "new-post" #新建文章
-    # 绑定独立域名
-    cd ./source
-    sudo vim CNAME
-        www.femnxyz.xyz
-
-    sudo hexo g
-    sudo cp -R public/*  deploy/femn2014.github.io
-    cd deploy/femn2014.github.io
-    git add .
-    git commit -m 'new-post,try to add domain'
-    git push -u origin master 
-
-如果在github-->setting-->sustom domain-->www.femnyy.com时，当输入https://femn2014.github.io/ 会转向到www.femnyy.com这个网站上,内容是femnyy.com网站的内容.
-### 绑定独立域名
-1.[获取](https://help.github.com/articles/setting-up-an-apex-domain/)github的IP地址
-
-2.在你的域名注册提供商那里配置DNS解析,推荐使用CNAME类型的记录
-
-3.添加CNAME文件
-
-    cd ./source
-    sudo vim CNAME
-        www.femnxyz.xyz
-    cd ../  
- 使用git命令行部署的 效果是:当输入https://femn2014.github.io/ 会转向到www.femnxyz.xyz这个url上，内容是github上的内容.
 
 
 ### 更换主题系列
