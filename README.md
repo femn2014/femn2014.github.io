@@ -78,17 +78,28 @@
     
     cd hexo_blog1
     sudo cnpm install hexo-generator-feed --save
-    vim _config.yml
+    sudo vim _config.yml
         feed:
             type: atom
             path: atom.xml
             limit: 20
     sudo hexo g  # 会发现public文件夹下多了atom.xml 例如要订阅我的blog只要输入ihtc.cc/atom就可以搜寻到啦
-    
-    # 达到搜寻引擎友好的目的
+    # 更新插件
+    sudo cnpm update     
+
+    # 达到搜寻引擎友好的目的(提高搜索结果中的展现率)
     sudo cnpm install hexo-generator-sitemap --save
+    sudo vim _config.yml
+        sitemap:
+            path: sitemap.xml
+    sudo hexo g # 部署到github上 就可以访问 http://www.femnxyz.xyz/sitemap.xml
     
-### 添加about页面(添加404.html直接在source下就行)
+[如何向google提交sitemap](https://www.google.com/webmasters/verification/home?hl=en)
+[其它的认证](https://www.google.com/webmasters/tools)
+[web tools ](https://www.google.com/webmasters/tools/testing-tools-links?hl=zh-CN&authuser=0)
+
+    
+### 添加about页面(添加404.html直接在source下就行,然后部署到github上,当访问我们不存在的页面时，就会跳转到我们定义的404.html页面)
 
     cd hexo_blog1
     sudo hexo new page "about"
@@ -115,6 +126,9 @@
         <br/>
         </div>
         </div>
+    访问http://www.femnxyz.xyz/about/
+
+
 [githut pages](https://pages.github.com/):
 github每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过http://username.github.io 来访问你的个人主页
 ### hexo 部署到github
