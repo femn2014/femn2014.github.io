@@ -13,7 +13,7 @@
     
     sudo git clone https://github.com/nodejs/node.git
     cd master_node
-     apt-get install gcc g++ make# 少什么安什么
+    apt-get install gcc g++ make # 少什么安什么
     ./configure
     make
     sudo make install
@@ -45,12 +45,12 @@
 
     # 其它常用命令
     hexo clean #清除缓存 网页正常情况下可以忽略此条命令
-    sudo hexo d(deploy) 部署播客到远端（比如github, heroku等平台）
+    sudo hexo d(deploy) 将public的内容部署播客到远端（比如github, heroku等平台）
+    sudo hexo d -g #生成部署 在执行hexo deploy时将其public复制到.deploy_git文件夹中
+    sudo hexo s -g #生成预览
     sudo hexo new "new-post" #新建文章
         source/_posts目录下会生成一个”new-post.md”的markdown文件
     sudo hexo new page "pageName" #新建页面
-    sudo hexo d -g #生成部署 在执行hexo deploy时将其public复制到.deploy_git文件夹中
-    sudo hexo s -g #生成预览
     
     sudo hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。
     sudo hexo server -s #静态模式
@@ -122,18 +122,33 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     sudo vim CNAME
         www.femnxyz.xyz
 
-    sudo hexo g
-    sudo cp -R public/*  deploy/femn2014.github.io
-    cd deploy/femn2014.github.io
-    git add .
-    git commit -m 'new-post,try to add domain'
-    git push -u origin master 
+    sudo vim d.sh 
+        #!/bin/bash
+        sudo hexo g
+        sudo cp -R public/* README.md  deploy/femn2014.github.io
+        cd deploy/femn2014.github.io
+        git add .
+        git commit -m $1
+        git push -u origin master 
+    sudo chmod u+x d.sh
+    sudo ./d.sh "new-post,try to add domain"
+    
+
+    # 也可以用
+    sudo vim d.sh 
+        #!/bin/bash
+        sudo hexo g 
+        sudo cp README.md public 
+        sudo hexo d -m $1
+    sudo ./d.sh "new-post,try to add domain"
+        
 
 如果在github-->setting-->sustom domain-->www.femnyy.com时，当输入https://femn2014.github.io/ 会转向到www.femnyy.com这个网站上,内容是femnyy.com网站的内容.
 ### 绑定独立域名
 1.[获取](https://help.github.com/articles/setting-up-an-apex-domain/)github的IP地址
 
 2.在你的域名注册提供商那里配置DNS解析,推荐使用CNAME类型的记录
+   CNAME  www.femnxyz.xyz femn2014.github.io
 
 3.添加CNAME文件
 
