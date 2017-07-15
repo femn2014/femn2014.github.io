@@ -209,7 +209,19 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     sudo vim _config.yml
     sudo vim themes/mabao/_config.yml
         google_analytics: UA-102544725-1
-    
+
+5.目前使用hueman
+
+    sudo git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman
+    sudo vim _config.yml
+        theme: hueman
+    # 开启insight search作为默认搜索引擎,需要安的插件
+5.1. 自动式现场搜索引擎
+    sudo cnpm install -S hexo-generator-json-content
+    sudo mv _config.yml.example _config.yml
+    sudo vim _config.yml
+5.2.[网站搜索引擎](https://swiftype.com/) # 注册时，必须是公司邮箱,我用的是admin@femnyy.com 这个帐号,
+
 ### 添加about页面(添加404.html直接在source下就行,然后部署到github上,当访问我们不存在的页面时，就会跳转到我们定义的404.html页面)
 
     cd hexo_blog1
