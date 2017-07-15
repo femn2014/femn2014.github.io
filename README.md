@@ -133,7 +133,7 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         git commit -m $1
         git push -u origin master 
     sudo chmod u+x d.sh
-    sudo ./d.sh "new-post,try to add domain"
+    sudo ./d.sh -0 "new-post,try to add domain"
     
 
     # 也可以用
