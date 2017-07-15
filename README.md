@@ -127,6 +127,7 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
 
     sudo vim d.sh 
         #!/bin/bash
+        IFS="|"
         sudo hexo g
         sudo cp -R public/* README.md  deploy/femn2014.github.io
         cd deploy/femn2014.github.io
@@ -134,7 +135,7 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         git commit -m $1
         git push -u origin master 
     sudo chmod u+x d.sh
-    sudo ./d.sh -0 "new-post,try to add domain"
+    sudo ./d.sh "new-post,try to add domain"
     
 
     # 也可以用
@@ -304,14 +305,4 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         categories: categories
         ---
  
-
-
     tags: 编程语言
-
-
-
-
-
-
-kkk
-success
