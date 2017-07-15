@@ -92,7 +92,9 @@
     sudo cnpm update
     
 [如何向google提交sitemap](https://www.google.com/webmasters/verification/home?hl=en)
+
 [其它的认证](https://www.google.com/webmasters/tools)
+
 [web tools ](https://www.google.com/webmasters/tools/testing-tools-links?hl=zh-CN&authuser=0)
 
 ### hexo 部署到github
@@ -143,7 +145,6 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     sudo ./d.sh "new-post,try to add domain"
         
 
-如果在github-->setting-->sustom domain-->www.femnyy.com时，当输入https://femn2014.github.io/ 会转向到www.femnyy.com这个网站上,内容是femnyy.com网站的内容.
 ### 绑定独立域名
 1.[获取](https://help.github.com/articles/setting-up-an-apex-domain/)github的IP地址
 
@@ -157,6 +158,78 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         www.femnxyz.xyz
     cd ../  
  使用git命令行部署的 效果是:当输入https://femn2014.github.io/ 会转向到www.femnxyz.xyz这个url上，内容是github上的内容.
+
+如果在github-->setting-->sustom domain-->www.femnyy.com时，当输入https://femn2014.github.io/ 会转向到www.femnyy.com这个网站上,内容是femnyy.com网站的内容.
+
+### [添加disqus评论系统](https://disqus.com)翻墙之后才能看到
+    
+    # Qisqus – settings – Add Disqus to your site 
+    # Website Name:www.femnxyz.xyz
+    # create after -->setting -->shortname
+    sudo vim _config.yml
+        disqus_shortname: www-femnxyz-xyz (you-shortname)
+    sudo vim thems/mabao/_config.yml
+        comment_provider: disqus
+    # 如需取消某个页面的评论，在md文件的front-matter中增加
+        comments: false
+    
+### [Google Analytics 统计](https://www.google.com/intl/zh-CN/analytics/)
+    
+    sodo vim themes/mabao/layout/casper/google-analytics.ejs
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-102544725-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    # 将此模板集成到您的主题中，以便在生成站点后，将其包含在每个页面的<head>标签中
+    
+    sudo vim thems/mabao/_config.yml
+        google_analytics:
+          enable: true
+          id: UA-102544725-1 # your_GAID
+          site: auto
+
+
+
+### 更换主题系列
+1.添加支付宝捐赠按钮及二维码支付[请参考](http://icehe.me/web/donate/)
+
+    sudo vim themes/jacman/layout/_widget/zhifubao.ejs
+    sudo vim themes/jacman/_config.yml
+        widgets:
+        - category
+        - tag
+        - links
+        - tagcloud
+        - zhifubao
+        - rss
+    sudo hexo g 
+    sudo hexo s 
+2.增加支付宝的支付图片(在yilia主题下)
+
+    sudo git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+    sudo vim themes/yilia/_config.yml
+    alipay:你的支付图片
+3.casper,但目前还不太会弄 ,还有个父级版的，本人不懂前端也是很无奈
+    
+    cd hexo_blog1
+    sudo hexo clean
+    sudo git clone https://github.com/kywk/hexo-theme-casper.git themes/casper
+    sudo vim _config.yml
+    # update
+    cd themes/casper
+    git pull
+    
+4.目前使用mabao
+
+    sudo git clone https://github.com/moretwo/hexo-theme.git themes/mabao
+    sudo vim _config.yml
+    
 ### 添加about页面(添加404.html直接在source下就行,然后部署到github上,当访问我们不存在的页面时，就会跳转到我们定义的404.html页面)
 
     cd hexo_blog1
@@ -185,74 +258,6 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         </div>
         </div>
     访问http://www.femnxyz.xyz/about/
-### [添加disqus评论系统](https://disqus.com)
-    
-    # Qisqus – settings – Add Disqus to your site 
-    # Website Name:www.femnxyz.xyz
-    # create after -->setting -->shortname
-    sudo vim _config.yml
-        disqus_shortname: www-femnxyz-xyz (you-shortname)
-    sudo vim thems/mabao/_config.yml
-        comment_provider: disqus
-    # 如需取消某个页面的评论，在md文件的front-matter中增加
-        comments: false
-    
-### [Google Analytics 统计](https://www.google.com/intl/zh-CN/analytics/)
-    
-    sodo vim themes/mabao/layout/casper/google-analytics.ejs
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-102544725-1', 'auto');
-          ga('send', 'pageview');
-
-        </script>
-    
-    sudo vim thems/mabao/_config.yml
-        google_analytics:
-          enable: true
-          id: UA-102544725-1 # your_GAID
-          site: auto
-
-
-
-### 更换主题系列
-### 1.添加支付宝捐赠按钮及二维码支付[请参考](http://icehe.me/web/donate/)
-
-    sudo vim themes/jacman/layout/_widget/zhifubao.ejs
-    sudo vim themes/jacman/_config.yml
-        widgets:
-        - category
-        - tag
-        - links
-        - tagcloud
-        - zhifubao
-        - rss
-    sudo hexo g 
-    sudo hexo s 
-### 2.增加支付宝的支付图片(在yilia主题下)
-
-    sudo git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
-    sudo vim themes/yilia/_config.yml
-    alipay:你的支付图片
-### 3.casper,但目前还不太会弄 ,还有个父级版的，本人不懂前端也是很无奈
-    
-    cd hexo_blog1
-    sudo hexo clean
-    sudo git clone https://github.com/kywk/hexo-theme-casper.git themes/casper
-    sudo vim _config.yml
-    # update
-    cd themes/casper
-    git pull
-    
-### 4.mabao
-
-    sudo git clone https://github.com/moretwo/hexo-theme.git themes/mabao
-    sudo vim _config.yml
-    
 ### [学习hexo](https://material.viosey.com/start/)
 
 
