@@ -82,6 +82,7 @@
            limit: 20
 
     # 达到搜寻引擎友好的目的(提高搜索结果中的展现率)
+    # 网站地图
     sudo cnpm install hexo-generator-sitemap --save
     sudo vim _config.yml
         sitemap:
@@ -173,29 +174,6 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     # 如需取消某个页面的评论，在md文件的front-matter中增加
         comments: false
     
-### [Google Analytics 统计](https://www.google.com/intl/zh-CN/analytics/)
-    
-    sodo vim themes/mabao/layout/casper/google-analytics.ejs
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-102544725-1', 'auto');
-          ga('send', 'pageview');
-
-        </script>
-    # 将此模板集成到您的主题中，以便在生成站点后，将其包含在每个页面的<head>标签中
-    
-    sudo vim thems/mabao/_config.yml
-        google_analytics:
-          enable: true
-          id: UA-102544725-1 # your_GAID
-          site: auto
-
-
-
 ### 更换主题系列
 1.添加支付宝捐赠按钮及二维码支付[请参考](http://icehe.me/web/donate/)
 
@@ -229,6 +207,8 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
 
     sudo git clone https://github.com/moretwo/hexo-theme.git themes/mabao
     sudo vim _config.yml
+    sudo vim themes/mabao/_config.yml
+        google_analytics: UA-102544725-1
     
 ### 添加about页面(添加404.html直接在source下就行,然后部署到github上,当访问我们不存在的页面时，就会跳转到我们定义的404.html页面)
 
@@ -258,6 +238,27 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
         </div>
         </div>
     访问http://www.femnxyz.xyz/about/
+
+### [Google Analytics 统计](https://www.google.com/intl/zh-CN/analytics/)
+    
+    sodo vim themes/mabao/layout/casper/google-analytics.ejs
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-102544725-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    # 将此模板集成到您的主题中，以便在生成站点后，将其包含在每个页面的<head>标签中
+    
+    sudo vim thems/mabao/_config.yml
+        google_analytics:
+          enable: true
+          id: UA-102544725-1 # your_GAID
+          site: auto
 ### [学习hexo](https://material.viosey.com/start/)
 
 
