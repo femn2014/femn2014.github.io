@@ -218,9 +218,13 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
     # 开启insight search作为默认搜索引擎,需要安的插件
 5.1. 自动式现场搜索引擎
     sudo cnpm install -S hexo-generator-json-content
+    sudo cnpm install  hexo-generator-json-content --save
+5.2.[网站搜索引擎](https://swiftype.com/) # 注册时，必须是公司邮箱,我用的是admin@femnyy.com 这个帐号,
+    cd themes/hueman
     sudo mv _config.yml.example _config.yml
     sudo vim _config.yml
-5.2.[网站搜索引擎](https://swiftype.com/) # 注册时，必须是公司邮箱,我用的是admin@femnyy.com 这个帐号,
+        swiftype: tooyzs6GUdxqe6mLZUV4 
+    
 
 ### 添加about页面(添加404.html直接在source下就行,然后部署到github上,当访问我们不存在的页面时，就会跳转到我们定义的404.html页面)
 
@@ -275,4 +279,32 @@ github每个帐号只能有一个仓库来存放个人主页，而且仓库的�
 
 
 
+
+### 分类
+
+    sudo hexo new page "categories"
+    ~/hexo_blog1/source/categories/index.md
+    sudo vim source/categories/index.md
+    # front-matter格式如下
+        ---
+        title: 分类
+        date: 2017-07-15 14:47:28
+        type: categories
+        ---
+    # 分类显示页面建立完毕
+
+### 测试分类 
+
+    sudo hexo n "测试分类"
+    sudo vim  ~/hexo_blog1/source/_posts/测试分类.md
+        ---
+        title: 测试分类
+        date: 2017-07-15 15:00:46
+        tags:
+        categories: categories
+        ---
+ 
+
+
+    tags: 编程语言
 

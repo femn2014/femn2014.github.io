@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.femnxyz.xyz/"/>
-  <updated>2017-07-13T02:22:35.861Z</updated>
+  <updated>2017-07-15T08:35:53.680Z</updated>
   <id>http://www.femnxyz.xyz/</id>
   
   <author>
@@ -16,43 +16,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new-post</title>
-    <link href="http://www.femnxyz.xyz/2017/07/13/new-post/"/>
-    <id>http://www.femnxyz.xyz/2017/07/13/new-post/</id>
-    <published>2017-07-13T02:22:35.000Z</published>
-    <updated>2017-07-13T02:22:35.861Z</updated>
+    <title>character_and_encode</title>
+    <link href="http://www.femnxyz.xyz/2017/07/15/character-and-encode/"/>
+    <id>http://www.femnxyz.xyz/2017/07/15/character-and-encode/</id>
+    <published>2017-07-15T07:11:44.000Z</published>
+    <updated>2017-07-15T08:35:53.680Z</updated>
     
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.femnxyz.xyz/2017/07/12/hello-world/"/>
-    <id>http://www.femnxyz.xyz/2017/07/12/hello-world/</id>
-    <published>2017-07-12T09:48:19.489Z</published>
-    <updated>2017-07-12T09:48:19.489Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<p><img src="https://i.loli.net/2017/07/15/5969c2580699f.png" alt=""><br><img src="/images/python3.jpg" alt=""><br>信息的存储单位：位(bit)–&gt;字节(Byte=8bit)–&gt;字符(char=2Byte)  1K =1024byte 1M = 1024K G T P</p>
+<p>thumbnail: <a href="https://i.loli.net/2017/07/15/5969c2580699f.png" target="_blank" rel="external">https://i.loli.net/2017/07/15/5969c2580699f.png</a></p>
+<p>字节是电脑最小的处理单元 一个字节：0x01</p>
+<p>字符：也是一个信息单位，它是各种文字和符号的总称。比如人类 各国看得懂的文字，符号，图形符号，数字。</p>
+<p>字符编码：是指对于字符集中的字符，将其编码为特定的二进制数，以便计算机处理。</p>
+<p>解码：将计算机处理后的二进制信息，转换成人类看得懂的字符。</p>
+<p>字符集和字符编码往往被认为是同文义的概念。ASCII字符编码既表示了字符集也表示了的对应的字符编码。</p>
+<p>ASCII字符集：共有128个字符（美国，本身只需要一个字节），包含显示字符(英文大小写，阿拉伯数字)和控制字符(回车，空格键)</p>
+<p>GB2312字符集：中国标准的简体中文字符集，其中还有一个中国的GBK字符集</p>
+<p>Unicode字符集：世界各国语言中使用到的所有字符。用了4个字节,2个字符。汉字’严’的Unicode编码是十六进制数4E25,转化成二进制有15位</p>
+<p>UTF-8：是一种针对Unicode的可变长度字符编码，它使用一到四个字节来表示字符。ASCII字符继续用一个字节表示。中文可能用到4个字节。</p>
+<p>先来一个关于简单的ASCII字符集，解码和编码的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">a = 12</div><div class="line">b = oct(a)</div><div class="line">print(b) #0o14 #为了将整数转换为二进制,八进制或十六进制的文本串,可以分别使用bin(),oct()或hex()</div><div class="line">#如果你不想输出0b,0o或者0x的前缀的话,可以使用format()函数。比如：format(x, &apos;b&apos;) &apos;o&apos; &apos;x&apos;</div><div class="line"># 编码 虽然没有用encode()方法</div><div class="line">print([n for n in b&apos;ahello&apos;])#[97, 104, 101, 108, 108, 111]</div><div class="line"># 索引和迭代动作返回的是字节的值而不是字节字符串</div><div class="line"># 编码与解码</div><div class="line">print([int(n).t o_bytes(1,&apos;big&apos;).decode(&apos;utf-8&apos;) for n in b&apos;ahello&apos;])</div><div class="line"># 成功 所以说再次证明 电脑最小的操作单位是字节 ，而不是字节的值这是人看得懂的</div><div class="line">#[&apos;a&apos;, &apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;]</div></pre></td></tr></table></figure>
+<p>中文字符集的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">print(sys.getdefaultencoding())#utf-8</div><div class="line">c =&apos;严&apos;.encode(&apos;utf-8&apos;)#b&apos;\xe4\xb8\xa5&apos;</div><div class="line">print(b&apos;\xe4\xb8\xa5&apos;[0])#228</div><div class="line">print(len(c))# 3个字节</div><div class="line">print(c.decode())# 严    #字节的低位高位排列方式 big从低到高 little从高到低</div><div class="line"></div><div class="line">from idna import unicode</div><div class="line">unicode(b&apos;\xe4\xb8\xa5&apos;,&apos;utf-8&apos;)</div><div class="line"></div><div class="line"># 解码</div><div class="line"># 多个字节的解码转换出来的 数字不太理解 虽然也是十进制的</div><div class="line">print(int().from_bytes(c, &apos;little&apos;)) #10860772 #将字节byte转换为整数 并指定字节顺序</div><div class="line">print(int().from_bytes(c, &apos;big&apos;)) # 14989477</div><div class="line">print(&apos;--------------------&apos;) # 14989477</div><div class="line"></div><div class="line"># 编码</div><div class="line">print(int(10860772).to_bytes(3, &apos;little&apos;))#b&apos;\xe4\xb8\xa5&apos;</div><div class="line">print(int(14989477).to_bytes(3, &apos;big&apos;).decode(&apos;utf-8&apos;))#b&apos;\xe4\xb8\xa5&apos;</div><div class="line"></div><div class="line">#为了将一个大整数转换为一个字节字符串，使用 int.to_bytes() 方法，并像下面这样指定字节数和字节顺序</div><div class="line">print(int(14989477).to_bytes(3, &apos;big&apos;))#b&apos;\xe4\xb8\xa5&apos;</div><div class="line">print(int(14989477).to_bytes(8, &apos;big&apos;))#b&apos;\x00\x00\x00\x00\x00\xe4\xb8\xa5&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="u’’-–-gt-str"><a href="#u’’-–-gt-str" class="headerlink" title="u’’ –&gt; str"></a>u’’ –&gt; str</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s = &apos;\u6211&apos;</div><div class="line">s = s.encode(&apos;utf-8&apos;).strip().decode()</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2017/07/15/5969c2580699f.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;/images/python3.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;信息的存储单位：位(bit)–&amp;gt;字节(Byt
     
     </summary>
     
+      <category term="python3" scheme="http://www.femnxyz.xyz/categories/python3/"/>
+    
+    
+      <category term="编程语言" scheme="http://www.femnxyz.xyz/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
